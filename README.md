@@ -13,7 +13,7 @@ As seen from the histogram below and the description above, we can infer the dis
 **quality** is our target variable and 5,6,7 are the most prominent values and is imbalanced.
 
 
-## Task 2: Data Scaling
+## Data Scaling
 
 Here we visualize the effects of data scalers on our input features using boxplot. The scalers used are MinMaxScaler, MaxAbsScaler, RobustScaler.
 
@@ -22,5 +22,21 @@ We use **MinMaxScaler** as it redistributes the data to a smaller scale, in this
 **MaxAbsScaler** it is considered as it does not change the distribution shape and also it works better as we have handled the outliers before hand
 
 **RobustScaler** it is more inline with our interquartile approach of scaling and also it can handle existing outliers. This scaler is used in case if there are outliers existing in the data.
+
+## Handling missing data and outliers
+
+In order to do the missing data and outlier handling, we will make use of our original data frame **White_Wine**.
+Here to handle missing data we will consdier using ffill(forward filling).
+
+And to handle outliers we will make use of the interquartile range, as it will not extrapolate our outliers.
+
+**Classification Task**
+
+Here we will make use of **Random Forest classifier and KNN Classifer**, as they provided the best performance among other methods exectued (SGD and SVC). Also we will make use of **f1_weighted** as the metric of choice, in our case the target variable (**quality**) is imbalanced in nature. This can be seen by the histogram plotted to visualize the data distribution, in such a scenario **f1_weighted** will provide a model that is more reliable and not overfitting.
+
+## Feature Selection
+
+As defined at the start of our project, we consider the **quality** column as our target variable. 
+Also we will make use of the forward and backward selection under the Wrapper approach of feature selection. We have chosen this approach, as it is robust and allows for using a range of learning algorithms. This will help us in determining the best approach to successfully complete our classification task.
 
 
